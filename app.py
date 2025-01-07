@@ -1,10 +1,15 @@
 import psycopg2
+import os
 from flask import Flask, request, jsonify
 import openai
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Habilita CORS para todas as rotas
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 5000))  # Render define a porta na variável PORT
+    app.run(host="0.0.0.0", port=port)
 
 
 # Configuração da API do OpenAI
