@@ -9,7 +9,7 @@ CORS(app)  # Habilita CORS para todas as rotas
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  # Render define a porta na variável PORT
-    app.run(host="https://jarvis-zz7f.onrender.com", port=port)
+    app.run(host="0.0.0.0", port=port)
 
 
 # Configuração da API do OpenAI
