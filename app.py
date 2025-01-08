@@ -22,6 +22,7 @@ CORS(app)  # Habilita CORS para todas as rotas
 @app.route("/")
 def home():
     return "O J.A.R.V.I.S está online e funcionando!"
+    return send_from_directory(".", "index.html")
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  # Use 5000 como porta padrão
     app.run(host="0.0.0.0", port=port)
@@ -50,10 +51,6 @@ def process_command():
     data = request.json
     command = data.get('command', '')
     print("Comando recebido:", command)  # Log para depuração
-
-    @app.route("/")
-def home():
-    return send_from_directory(".", "index.html")
 
     # Verifica no banco se já existe uma resposta
     response = get_existing_response(command)
