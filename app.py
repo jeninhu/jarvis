@@ -1,6 +1,6 @@
 import psycopg2
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import openai
 
@@ -50,6 +50,10 @@ def process_command():
     data = request.json
     command = data.get('command', '')
     print("Comando recebido:", command)  # Log para depuração
+
+    @app.route("/")
+def home():
+    return send_from_directory(".", "index.html")
 
     # Verifica no banco se já existe uma resposta
     response = get_existing_response(command)
