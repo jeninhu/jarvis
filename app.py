@@ -19,6 +19,9 @@ db_config = {
 # Inicializa o app Flask
 app = Flask(__name__)
 CORS(app)  # Habilita CORS para todas as rotas
+@app.route("/")
+def home():
+    return "O J.A.R.V.I.S está online e funcionando!"
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))  # Use 5000 como porta padrão
     app.run(host="0.0.0.0", port=port)
