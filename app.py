@@ -68,7 +68,7 @@ def get_ai_response(command):
             messages=[
                 {"role": "system", "content": "Você é um assistente útil que responde em português do Brasil."},
                 {"role": "user", "content": command},
-            ],
+            ]
         )
         return completion.choices[0].message["content"]
     except Exception as e:
