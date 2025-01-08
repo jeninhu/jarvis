@@ -19,12 +19,11 @@ db_config = {
 # Inicializa o app Flask
 app = Flask(__name__)
 CORS(app)  # Habilita CORS para todas as rotas
+
+# Rota para servir o index.html
 @app.route("/")
 def home():
     return send_from_directory(".", "index.html")
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5000))  # Use 5000 como porta padrão
-    app.run(host="0.0.0.0", port=port)
 
 # Inicializa o banco de dados
 def init_db():
@@ -48,6 +47,7 @@ def init_db():
 @app.route('/process_command', methods=['POST'])
 def process_command():
     data = request.json
+    print("Dados recebidos:", data)  # Log para depuração
     command = data.get('command', '')
     print("Comando recebido:", command)  # Log para depuração
 
