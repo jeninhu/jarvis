@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.A.R.V.I.S</title>
+    <script>
+        async function sendCommand() {
+            const command = document.getElementById("command").value;
+            const responseField = document.getElementById("response");
+
+            try {
+                const response = await fetch("/process_command", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ command }),
+                });
+
+                const data = await response.json();
+                responseField.innerText = `Resposta: ${data.response}`;
+            } catch (error) {
+                responseField.innerText = "Erro ao se comunicar com o J.A.R.V.I.S.";
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>J.A.R.V.I.S está online!</h1>
+    <input type="text" id="command" placeholder="Digite um comando" />
+    <button onclick="sendCommand()">Enviar</button>
+    <p id="response"></p>
+</body>
+</html>
