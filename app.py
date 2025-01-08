@@ -63,12 +63,14 @@ def process_command():
 # Obtém resposta da OpenAI
 def get_ai_response(command):
     try:
-        completion = openai.Completion.create(  # Usando Completion em vez de ChatCompletion
+        completion = openai.ChatCompletion.create(
             model="gpt-4",
-            prompt=command,  # Usando 'prompt' em vez de 'messages'
-            max_tokens=150  # Ajuste conforme necessário
+            messages=[
+                {"role": "system", "content": "Você é um assistente útil que responde em português do Brasil."},
+                {"role": "user", "content": command}
+            ]
         )
-        return completion.choices[0].text.strip()  # 'text' em vez de 'message'
+        return completion.choices[0].message["content"]  # 'message' é a forma correta nesta versão
     except Exception as e:
         return f"Ocorreu um erro ao obter resposta da IA: {str(e)}"
 
