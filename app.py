@@ -64,7 +64,7 @@ def process_command():
 def get_ai_response(command):
     try:
         completion = openai.ChatCompletion.create(
-            model="gpt-4",
+            model="gpt-3.5",
             messages=[
                 {"role": "system", "content": "Você é um assistente útil que responde em português do Brasil."},
                 {"role": "user", "content": command}
