@@ -7,8 +7,8 @@ pytz==2024.1
 Werkzeug==3.1.3
 
 # Dependências opcionais (adicione apenas se necessário)
-# tqdm==4.66.5  # Para barras de progresso
-# python-Levenshtein==0.25.1  # Para comparação de strings (se usado no projeto)
-# pandas==2.2.2  # Manipulação de dados
-# numpy==2.0.1  # Manipulação de arrays numéricos
-# Unidecode==1.3.8  # Para remover acentos de texto (se usado no processamento)
+tqdm==4.66.5  # Para barras de progresso
+python-Levenshtein==0.25.1  # Para comparação de strings (se usado no projeto)
+pandas==2.2.2  # Manipulação de dados
+numpy==2.0.1  # Manipulação de arrays numéricos
+Unidecode==1.3.8  # Para remover acentos de texto (se usado no processamento)
