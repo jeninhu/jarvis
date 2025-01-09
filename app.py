@@ -70,7 +70,7 @@ def get_ai_response(command):
                 {"role": "user", "content": command}
             ]
         )
-        return completion.choices[0].message["content"]  # 'message' é a forma correta nesta versão
+        return completion.choices[0].message["content"]
     except Exception as e:
         return f"Ocorreu um erro ao obter resposta da IA: {str(e)}"
 
